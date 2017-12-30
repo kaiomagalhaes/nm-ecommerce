@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 # Solidus
 gem 'solidus'
 gem 'solidus_auth_devise'
+gem 'solidus_i18n', github: 'solidusio-contrib/solidus_i18n', branch: 'master'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
