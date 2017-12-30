@@ -2,12 +2,12 @@ version: '2'
 services:
   db:
     image: postgres
-    container_name: rails-base-dev-db
+    container_name: nm-ecommerce-dev-db
     env_file:
       - .env
 
   app:
-    container_name: rails-base-dev-app
+    container_name: nm-ecommerce-dev-app
     tty: true
     stdin_open: true
     build:
@@ -32,7 +32,7 @@ services:
       - box
 
   box:
-    container_name: rails-base-bundle-box
+    container_name: nm-ecommerce-bundle-box
     image: busybox
     volumes:
       - /box
