@@ -8,7 +8,6 @@ dependencies:
     - gem install bundler
 database:
   override:
-    - sed -i "s/PROJECT_NAME/$PROJECT_NAME/g" config/database.ci.yml
     - mv config/database.ci.yml config/database.yml
     - bundle exec rake db:create db:schema:load --trace
 
@@ -21,8 +20,8 @@ deployment:
   dev:
     branch: /^(?!(master|homolog|develop|qa)).*/
     commands:
-      - heroku maintenance:on --app exercise-rec-dev
+      - heroku maintenance:on --app nm-ecommerce-dev
       - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
-      - git push -f git@heroku.com:exercise-rec-dev.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app exercise-rec-dev
-      - heroku maintenance:off --app exercise-rec-dev
+      - git push -f git@heroku.com:nm-ecommerce-dev.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app nm-ecommerce-dev
+      - heroku maintenance:off --app nm-ecommerce-dev
