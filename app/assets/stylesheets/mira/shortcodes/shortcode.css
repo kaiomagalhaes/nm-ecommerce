@@ -1,6 +1,8 @@
-@import url("bundle.css");
-@import url("header.css");
-@import url("slider.css");
-@import url("shop.css");
-@import url("footer.css");
-@import url("modal.css");
+/*
+ *= require mira/shortcodes/bundle
+ *= require mira/shortcodes/header
+ *= require mira/shortcodes/slider
+ *= require mira/shortcodes/shop
+ *= require mira/shortcodes/footer
+ *= require mira/shortcodes/modal
+ */
