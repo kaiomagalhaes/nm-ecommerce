@@ -1,12 +1,59 @@
-<nav class="columns sixteen">
-  <ul id="main-nav-bar" class="inline" data-hook>
-    <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li>
-    <li id="link-to-cart" data-hook>
-      <noscript>
-        <%= link_to Spree.t(:cart), spree.cart_path %>
-      </noscript>
-      &nbsp;
-    </li>
-  </ul>
-  <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
-</nav>
+<div class="header-area">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-lg-2 col-sm-4 col-xs-4">
+          <div class="logo">
+            <%= link_to(root_path) do %>
+              <figure id="logo" class="columns six" data-hook><%= logo %></figure>
+            <% end %>
+          </div>
+      </div>
+
+      <div class="col-md-10 col-lg-10 col-sm-2 col-xs-2 text-center">
+          <div class="main-menu display-inline">
+              <nav class="columns sixteen">
+                  <ul id="main-nav-bar" class="menu inline" data-hook>
+                    <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li>
+                      <li><a href="#">ABOUT US</a></li>
+                      <li><a href="#">pages <i class="pe-7s-angle-down"></i></a>
+                          <ul>
+                              <li><a href="#">about us</a></li>
+                              <li><a href="#">shop</a></li>
+                              <li><a href="#">cart</a></li>
+                              <li><a href="#">login</a></li>
+                              <li><a href="#">register</a></li>
+                              <li><a href="#">checkout</a></li>
+                              <li><a href="#">wishlist</a></li>
+                              <li><a href="#">shop details</a></li>
+                              <li><a href="#">contact us</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="shop.html">shop</a></li>
+                      <li><a href="blog.html">BLOG <i class="pe-7s-angle-down"></i></a>
+                          <ul>
+                              <li><a href="#">blog 2 column</a></li>
+                              <li><a href="#">blog full wide</a></li>
+                              <li><a href="#">blog details</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="#">CONTACT</a></li>
+                      <%= render partial: 'spree/shared/nav_bar' %>
+
+
+                      <li id="link-to-cart" class="top-cart" data-hook>
+                        <noscript>
+                          <%= link_to(spree.cart_path) do %>
+                            <%= Spree.t(:cart) %>
+                          <% end %>
+                        </noscript>
+                        &nbsp;
+                      </li>
+                      <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+      <div class="mobile-menu"></div>
+    </div>
+  </div>
+</div>
