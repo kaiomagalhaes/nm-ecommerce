@@ -21,7 +21,7 @@
                           <% cache [I18n.locale, taxonomy, max_level] do %>
                             <li class="dropdown">
                               <a href="#" class='dropdown-toggle taxonomy-root' data-toggle="dropdown"><%= Spree.t(:shop_by_taxonomy, taxonomy: taxonomy.name) %></a>
-                              <%= nav_tree(taxonomy.root, @taxon, max_level) %>
+                              <%= nav_bar_taxons_tree(taxonomy.root, @taxon, max_level) %>
                             </li>
                           <% end %>
                         <% end %>
