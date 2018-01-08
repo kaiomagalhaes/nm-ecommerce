@@ -17,7 +17,7 @@
                     <li><a href="#">Categorias<i class="pe-7s-angle-down"></i></a>
                       <ul>
                         <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
-                        <% @taxonomies.each do |taxonomy| %>
+                        <% store_taxonomies.each do |taxonomy| %>
                           <% cache [I18n.locale, taxonomy, max_level] do %>
                             <li class="dropdown">
                               <a href="#" class='dropdown-toggle taxonomy-root' data-toggle="dropdown"><%= Spree.t(:shop_by_taxonomy, taxonomy: taxonomy.name) %></a>
