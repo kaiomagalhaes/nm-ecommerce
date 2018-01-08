@@ -7,6 +7,10 @@ module Spree
       taxons_tree_builder(root_taxon, current_taxon, max_level)
     end
 
+    def store_taxonomies
+      Spree::Taxonomy.includes(root: :children)
+    end
+
     private
 
     def taxons_tree_builder(root_taxon, current_taxon, max_level)
