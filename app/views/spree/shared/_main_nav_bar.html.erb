@@ -14,6 +14,19 @@
               <nav class="columns sixteen">
                   <ul id="main-nav-bar" class="menu inline" data-hook>
                     <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li>
+                    <li><a href="#">Categorias<i class="pe-7s-angle-down"></i></a>
+                      <ul>
+                        <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+                        <% @taxonomies.each do |taxonomy| %>
+                          <% cache [I18n.locale, taxonomy, max_level] do %>
+                            <li class="dropdown">
+                              <a href="#" class='dropdown-toggle taxonomy-root' data-toggle="dropdown"><%= Spree.t(:shop_by_taxonomy, taxonomy: taxonomy.name) %></a>
+                              <%= nav_bar_taxons_tree(taxonomy.root, @taxon, max_level) %>
+                            </li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    </li>
                       <li><a href="#">ABOUT US</a></li>
                       <li><a href="#">pages <i class="pe-7s-angle-down"></i></a>
                           <ul>
