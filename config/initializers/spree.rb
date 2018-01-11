@@ -13,7 +13,8 @@ Spree.config do |config|
   # Core:
 
   # Default currency for new sites
-  config.currency = 'BRL'
+  # products registered in non-default currencies will not appear
+  config.currency = 'USD'
 
   # from address for transactional emails
   config.mails_from = 'store@example.com'
