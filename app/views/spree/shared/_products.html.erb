@@ -21,23 +21,32 @@
   <% end %>
 </div>
 <% if products.any? %>
-  <div id="products" class="shop-area pt-100 pb-70 inline product-listing" data-hook>
-    <div class="container-fluid">
-      <div class="shop-style-all mt-50">
-        <div class="row">
-          <div class="grid">
+<div id="products" class="shop-area ptb-90" data-hook>
+  <div class="container-fluid">
+    <div class="section-title text-center">
+      <h3>Featured Collections</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    </div>
+    <div class="shop-style-all">
+      <div class="row">
+        <div class="grid">
             <% products.each do |product| %>
               <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
-              <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat1">
+              <div class="col-md-3 col-sm-6 col-xs-12">
                 <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
                   <div class="shop hover-style mb-30">
                     <div class="shop-img">
-                      <%= link_to image_tag(product.display_image.attachment(:small), itemprop: "image"), url, itemprop: 'url' %>
-                      <div class="shop-title title-style-1">
-                        <h3>
-                          <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
-                        </h3>
-                        <span class="new-price price selling" itemprop="price"><%= display_price(product) %></span>
+                      <div class="shop-single-img">
+                        <%= link_to image_tag(product.display_image.attachment(:small), itemprop: "image"), url, itemprop: 'url' %>
+                        <div class="product-cart-3">
+                            <a href="#"><i class="pe-7s-cart"></i></a>
+                            <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
+                        </div>
+                      </div>
+                      <div class="title-style-3 text-center">
+                          <h3><%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %></h3>
+                          <span class="new-price price selling" itemprop="price"><%= display_price(product) %></span>
+                          <span class="old-price">$70</span>
                       </div>
                     </div>
                   </div>
