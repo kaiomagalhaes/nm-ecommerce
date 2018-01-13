@@ -37,7 +37,7 @@
                   <div class="shop hover-style mb-30">
                     <div class="shop-img">
                       <div class="shop-single-img">
-                        <%= link_to image_tag(product.display_image.attachment(:small), itemprop: "image"), url, itemprop: 'url' %>
+                        <%= link_to image_tag(product.display_image.attachment(:large), itemprop: "image"), url, itemprop: 'url' %>
                         <div class="product-cart-3">
                             <a href="#"><i class="pe-7s-cart"></i></a>
                             <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
