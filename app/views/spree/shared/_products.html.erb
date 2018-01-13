@@ -37,7 +37,7 @@
                   <div class="shop hover-style mb-30">
                     <div class="shop-img">
                       <div class="shop-single-img">
-                        <%= link_to image_tag(product.display_image.attachment(:small), itemprop: "image"), url, itemprop: 'url' %>
+                        <%= link_to image_tag(product.display_image.attachment(:large), itemprop: "image"), url, itemprop: 'url' %>
                         <div class="product-cart-3">
                             <a href="#"><i class="pe-7s-cart"></i></a>
                             <a href="#" data-toggle="modal" data-target="#productModal"><i class="pe-7s-look"></i></a>
@@ -64,3 +64,62 @@
 <% if paginated_products.respond_to?(:total_pages) %>
   <%= paginate paginated_products %>
 <% end %>
+
+<div class="blog-area pb-70">
+  <div class="container-fluid">
+    <div class="section-title text-center mb-50">
+      <h3>Latest Products</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="single-blog mb-30">
+          <a href="blog-details.html">
+              <%= image_tag "blog-1.jpg" %>
+          </a>
+          <div class="blog-title">
+            <span>December 8, 2017</span>
+            <h3><a href="blog-details.html">Lorem Ipsum is simply dummy</a></h3>
+            <a href="blog-details.html">read more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-blog mb-30">
+          <a href="blog-details.html">
+            <%= image_tag "blog-2.jpg" %>
+          </a>
+          <div class="blog-title">
+            <span>December 8, 2017</span>
+            <h3><a href="blog-details.html">Lorem Ipsum is simply dummy</a></h3>
+            <a href="blog-details.html">read more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-blog mb-30">
+          <a href="blog-details.html">
+              <%= image_tag "blog-5.jpg" %>
+          </a>
+          <div class="blog-title">
+            <span>December 8, 2017</span>
+            <h3><a href="blog-details.html">Lorem Ipsum is simply dummy</a></h3>
+            <a href="blog-details.html">read more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="single-blog mb-30">
+          <a href="blog-details.html">
+            <%= image_tag "blog-3.jpg" %>
+          </a>
+          <div class="blog-title">
+            <span>December 8, 2017</span>
+            <h3><a href="blog-details.html">Lorem Ipsum is simply dummy</a></h3>
+            <a href="blog-details.html">read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
