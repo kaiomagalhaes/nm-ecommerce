@@ -17,6 +17,14 @@ test:
     - bundle exec rspec
 
 deployment:
+  prod:
+    branch: feature/master-deploy
+    commands:
+      - heroku maintenance:on --app nm-ecommerce-prod
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
+      - git push -f git@heroku.com:nm-ecommerce-prod.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run rake db:migrate --app nm-ecommerce-prod
+      - heroku maintenance:off --app nm-ecommerce-prod
   dev:
     branch: /^(?!(master|homolog|develop|qa)).*/
     commands:
