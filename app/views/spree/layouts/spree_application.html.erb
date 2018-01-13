@@ -11,7 +11,7 @@
     <div class="waraper">
       <%= render partial: 'spree/shared/header' %>
       <div class="container">
-        <%= render partial: 'spree/shared/breadcrumb_area' %>
+        <%= render partial: 'spree/shared/breadcrumb_area' unless current_page?(root_path) %>
 
         <div id="wrapper" class="row" data-hook>
 
