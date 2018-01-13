@@ -1,71 +1,115 @@
 <div class="header-area">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2 col-lg-2 col-sm-4 col-xs-4">
-          <div class="logo">
-            <%= link_to(root_path) do %>
-              <figure id="logo" class="columns six" data-hook><%= logo %></figure>
-            <% end %>
-          </div>
+      <div class="col-md-3 col-sm-4 col-xs-4">
+        <div>
+          <%= link_to(root_path) do %>
+            <figure id="logo" class="columns six logo" data-hook><%= logo %></figure>
+          <% end %>
+        </div>
       </div>
 
-      <div class="col-md-10 col-lg-10 col-sm-2 col-xs-2 text-center">
-          <div class="main-menu display-inline">
-              <nav class="columns sixteen">
-                  <ul id="main-nav-bar" class="menu inline" data-hook>
-                    <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li>
-                    <li><a href="#">Categorias<i class="pe-7s-angle-down"></i></a>
-                      <ul>
-                        <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
-                        <% store_taxonomies.each do |taxonomy| %>
-                          <% cache [I18n.locale, taxonomy, max_level] do %>
-                            <li class="dropdown">
-                              <a href="#" class='dropdown-toggle taxonomy-root' data-toggle="dropdown"><%= Spree.t(:shop_by_taxonomy, taxonomy: taxonomy.name) %></a>
-                              <%= nav_bar_taxons_tree(taxonomy.root, @taxon, max_level) %>
-                            </li>
-                          <% end %>
-                        <% end %>
-                      </ul>
-                    </li>
-                      <li><a href="#">ABOUT US</a></li>
-                      <li><a href="#">pages <i class="pe-7s-angle-down"></i></a>
-                          <ul>
-                              <li><a href="#">about us</a></li>
-                              <li><a href="#">shop</a></li>
-                              <li><a href="#">cart</a></li>
-                              <li><a href="#">login</a></li>
-                              <li><a href="#">register</a></li>
-                              <li><a href="#">checkout</a></li>
-                              <li><a href="#">wishlist</a></li>
-                              <li><a href="#">shop details</a></li>
-                              <li><a href="#">contact us</a></li>
-                          </ul>
+      <div class="col-md-6 col-sm-4  col-xs-2 text-center">
+        <div class="main-menu display-inline">
+          <nav class="columns sixteen">
+            <ul id="main-nav-bar" class="menu inline" data-hook>
+              <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li>
+              <li><a href="#">Categorias<i class="pe-7s-angle-down"></i></a>
+                <ul>
+                  <% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+                  <% store_taxonomies.each do |taxonomy| %>
+                    <% cache [I18n.locale, taxonomy, max_level] do %>
+                      <li class="dropdown">
+                        <a href="#" class='dropdown-toggle taxonomy-root' data-toggle="dropdown"><%= Spree.t(:shop_by_taxonomy, taxonomy: taxonomy.name) %></a>
+                        <%= nav_bar_taxons_tree(taxonomy.root, @taxon, max_level) %>
                       </li>
-                      <li><a href="shop.html">shop</a></li>
-                      <li><a href="blog.html">BLOG <i class="pe-7s-angle-down"></i></a>
-                          <ul>
-                              <li><a href="#">blog 2 column</a></li>
-                              <li><a href="#">blog full wide</a></li>
-                              <li><a href="#">blog details</a></li>
-                          </ul>
-                      </li>
-                      <li><a href="#">CONTACT</a></li>
-                      <%= render partial: 'spree/shared/nav_bar' %>
-
-
-                      <li id="link-to-cart" class="top-cart" data-hook>
-                        <noscript>
-                          <%= link_to(spree.cart_path) do %>
-                            <%= Spree.t(:cart) %>
-                          <% end %>
-                        </noscript>
-                        &nbsp;
-                      </li>
-                      <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
-                  </ul>
-              </nav>
-          </div>
+                    <% end %>
+                  <% end %>
+                </ul>
+              </li>
+              <li><a href="#">ABOUT US</a></li>
+              <li><a href="shop.html">shop</a></li>
+              <li><a href="blog.html">BLOG <i class="pe-7s-angle-down"></i></a>
+                <ul>
+                  <li><a href="#">blog 2 column</a></li>
+                  <li><a href="#">blog full wide</a></li>
+                  <li><a href="#">blog details</a></li>
+                </ul>
+              </li>
+              <li><a href="#">CONTACT</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
+      <div class="col-md-3 col-sm-4 col-xs-6 text-right text-sm text-res">
+        <div class="cart-user-language">
+          <div class="shopping-cart ml-30 display-inline">
+            <a class="top-cart" href="cart.html"><i class="pe-7s-cart"></i></a>
+            <ul>
+              <li id="link-to-cart" class="top-cart" data-hook>
+                <div class="cart-img">
+                  <noscript>
+                    <%= link_to(spree.cart_path) do %>
+                      <%= Spree.t(:cart) %><a href="#"><img src="assets/img/cart/1.jpg" alt="" /></a>
+                    <% end %>
+                  </noscript>
+                  &nbsp;
+                </div>
+                <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
+                <div class="cart-content">
+                  <h3><a href="#"> 1 X Faded...</a> </h3>
+                  <span><b>S, Orange</b></span>
+                  <span class="cart-price">£ 16.84</span>
+                </div>
+                <div class="cart-del">
+                  <i class="pe-7s-close-circle"></i>
+                </div>
+              </li>
+              <li>
+                <div class="cart-img">
+                  <a href="#"><img src="assets/img/cart/2.jpg" alt="" /></a>
+                </div>
+                <div class="cart-content">
+                  <h3><a href="#"> 1 X Faded...</a> </h3>
+                  <span><b>S, Orange</b></span>
+                  <span class="cart-price">£ 16.84</span>
+                </div>
+                <div class="cart-del">
+                  <i class="pe-7s-close-circle"></i>
+                </div>
+              </li>
+              <li>
+                <div class="shipping">
+                  <span class="f-left">Shipping </span>
+                  <span class="f-right cart-price"> $7.00</span>
+                </div>
+                <hr class="shipping-border" />
+                <div class="shipping">
+                  <span class="f-left"> Total </span>
+                  <span class="f-right cart-price">$692.00</span>
+                </div>
+              </li>
+              <li class="checkout m-0"><a href="#">checkout <i class="pe-7s-angle-right"></i></a></li>
+            </ul>
+          </div>
+          <div class="user">
+            <%#= render partial: 'spree/shared/nav_bar' %>
+            <a href="#" data-toggle="modal" data-target="#loginModal"><i class="pe-7s-add-user"></i></a>
+          </div>
+          <div class="search-block-top display-inline">
+            <div class="icon-search">
+              <a href="#"><i class="pe-7s-search"></i></a>
+            </div>
+            <div class="toogle-content">
+              <form action="#" id="searchbox">
+                <input type="text" placeholder="Search" />
+                <button class="button-search"><i class="pe-7s-search"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="mobile-menu"></div>
     </div>
   </div>
