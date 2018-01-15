@@ -1,5 +1,7 @@
+<div class="pro-large-img tab-pane active">
 <% if defined?(image) && image %>
   <%= image_tag image.attachment.url(:product), itemprop: "image" %>
 <% else %>
   <%= image_tag @product.display_image.attachment(:product), itemprop: "image" %>
 <% end %>
+</div>
