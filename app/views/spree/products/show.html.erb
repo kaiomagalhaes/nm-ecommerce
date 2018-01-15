@@ -1,15 +1,13 @@
 <% cache [I18n.locale, current_pricing_options, @product] do %>
-  <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+  <div data-hook="product_show" class="page-section section ptb-100" itemscope itemtype="http://schema.org/Product">
     <% @body_id = 'product-details' %>
-
-    <div class="columns six alpha" data-hook="product_left_part">
-      <div class="row" data-hook="product_left_part_wrap">
-
-        <div id="product-images" data-hook="product_images">
-          <div id="main-image" data-hook>
+    <div class="container-fluid">
+      <div class="row mb-40">
+        <div id="product-images" data-hook="product_images" class="col-md-5 col-sm-6 col-xs-12 mb-40">
+          <div id="main-image" class="tab-content mb-10" data-hook>
             <%= render partial: 'image' %>
           </div>
-          <div id="thumbnails" data-hook>
+          <div id="thumbnails" data-hook class="pro-thumb-img-slider">
             <%= render partial: 'thumbnails' %>
           </div>
         </div>
@@ -23,7 +21,7 @@
         </div>
 
       </div>
-    </div>
+
 
     <div class="columns ten omega" data-hook="product_right_part">
       <div class="row" data-hook="product_right_part_wrap">
@@ -46,6 +44,6 @@
 
       </div>
     </div>
-
+</div>
   </div>
 <% end %>
