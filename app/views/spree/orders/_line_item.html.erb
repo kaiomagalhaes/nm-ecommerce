@@ -1,6 +1,9 @@
 <% variant = line_item.variant -%>
 <%= order_form.fields_for :line_items, line_item do |item_form| -%>
   <tr class="<%= cycle('', 'alt') %> line-item">
+    <td class="cart-item-delete" data-hook="cart_item_delete">
+      <%= link_to image_tag('icons/delete.png'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}" %>
+    </td>
     <td class="cart-item-image" data-hook="cart_item_image">
       <% if variant.images.length == 0 %>
         <%= link_to image_tag(variant.product.display_image.attachment(:small)), variant.product %>
@@ -28,9 +31,6 @@
     </td>
     <td class="cart-item-total" data-hook="cart_item_total">
       <%= line_item.display_amount.to_html unless line_item.quantity.nil? %>
-    </td>
-    <td class="cart-item-delete" data-hook="cart_item_delete">
-      <%= link_to image_tag('icons/delete.png'), '#', class: 'delete', id: "delete_#{dom_id(line_item)}" %>
     </td>
   </tr>
 <% end -%>
