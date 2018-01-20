@@ -1,66 +1,52 @@
 <% @body_id = 'cart' %>
 <div class="cart-main-area ptb-100">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-hook="cart_container">
-
-              <h1 class="cart-heading"><%= Spree.t(:shopping_cart) %></h1>
-
-  <% if @order.line_items.empty? %>
-
-    <div data-hook="empty_cart">
-      <p><%= Spree.t(:your_cart_is_empty) %></p>
-      <p><%= link_to Spree.t(:continue_shopping), products_path, class: 'button continue' %></p>
-    </div>
-
-  <% else %>
-
-    <div data-hook="outside_cart_form">
-      <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
-        <div class="table-content table-responsive" data-hook="inside_cart_form">
-
-          <div data-hook="cart_items">
-            <%= render 'form', order_form: order_form %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" data-hook="cart_container">
+        <h1 class="cart-heading"><%= Spree.t(:shopping_cart) %></h1>
+        <% if @order.line_items.empty? %>
+          <div data-hook="empty_cart">
+            <p><%= Spree.t(:your_cart_is_empty) %></p>
+            <p><%= link_to Spree.t(:continue_shopping), products_path, class: 'button continue' %></p>
           </div>
-
-
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="coupon-all">
+        <% else %>
+          <div data-hook="outside_cart_form">
+            <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
+              <div class="table-content table-responsive" data-hook="inside_cart_form">
+                <div data-hook="cart_items">
+                  <%= render 'form', order_form: order_form %>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="coupon-all">
                     <div class="coupon">
                       <%= order_form.text_field :coupon_code, placeholder: Spree.t(:coupon_code), class:"input-text", name:"coupon_code", id: 'coupon_code' %>
                       <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
-                      </div>
-                      <div class="coupon2">
-          <%= submit_tag "Update cart", class: 'button' %>
-            </div>
-            </div>
-          </div>
-  </div>
-  <div class="row">
-      <div class="col-md-5 col-md-offset-7 col-sm-12 col-xs-12">
-          <div class="cart-total">
-              <h2>Cart totals</h2>
-              <ul>
-                  <li>Subtotal<span>100.00</span></li>
-                  <li>Total<span><%= order_form.object.display_total %></span></li>
-              </ul>
-              <br>
-              <div class="coupon">
-                <input class="button" name="apply_coupon" value="<%= Spree.t(:checkout) %>" type="submit">
-
+                    </div>
+                    <div class="coupon2">
+                      <%= submit_tag "Update cart", class: 'button' %>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div class="row">
+                <div class="col-md-5 col-md-offset-7 col-sm-12 col-xs-12">
+                  <div class="cart-total">
+                    <h2>Cart totals</h2>
+                    <ul>
+                      <li>Subtotal<span>100.00</span></li>
+                      <li>Total<span><%= order_form.object.display_total %></span></li>
+                    </ul>
+                    <br>
+                    <div class="coupon">
+                      <input class="button" name="apply_coupon" value="<%= Spree.t(:checkout) %>" type="submit">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
+        <% end %>
       </div>
-  </div>
-
-
-
-        </div>
-      <% end %>
     </div>
-
-  <% end %>
-</div>
-</div>
-</div>
+  </div>
 </div>
