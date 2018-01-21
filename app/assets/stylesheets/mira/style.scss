@@ -4,9 +4,9 @@
     Author: HasTech
     Version: 1.0
 -----------------------------------------------------------------------------------
-    
-    [Table of contents] 
-	
+
+    [Table of contents]
+
     1. Template default css (assets/css/shortcodes/bundle.css)
     2. Header css (assets/css/shortcodes/header.css)
     3. Slider css (assets/css/shortcodes/slider.css)
@@ -22,8 +22,8 @@
     13. Contact us
     14. About us
     15. Scrollup
-    
-    
+
+
 -----------------------------------------------------------------------------------*/
 
 
@@ -378,7 +378,7 @@ h2.page-title {
     transform: rotate(33deg);
     width: 1.5px;
 }
-/*=========================== 
+/*===========================
     10. Checkout page
 ============================= */
 
@@ -1258,18 +1258,25 @@ a#scrollUp:hover {
     background: #000 none repeat scroll 0 0;
 }
 
+/*----------- CUSTOM --------------------- */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn-black {
+    background-color: #333;
+    border: 0 none;
+    border-radius: 2px;
+    color: #fff;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    height: 42px;
+    letter-spacing: 1px;
+    line-height: 42px;
+    padding: 0 25px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out 0s;
+    width: inherit;
+    &:hover {
+      background-color: #555;
+      color: #fff;
+    }
+}
