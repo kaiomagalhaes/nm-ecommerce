@@ -37,9 +37,9 @@
                       <li>Total<span><%= order_form.object.display_total %></span></li>
                     </ul>
                     <br>
-                    <div class="coupon">
-                      <input class="button" name="apply_coupon" value="<%= Spree.t(:checkout) %>" type="submit">
-                    </div>
+                    <%= button_tag class: 'btn-black checkout', id: 'checkout-link', name: 'checkout' do %>
+                      <%= Spree.t(:checkout) %>
+                    <% end %>
                   </div>
                 </div>
               </div>

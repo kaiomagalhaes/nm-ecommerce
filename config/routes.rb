@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   root 'users#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  Spree::Core::Engine.routes.draw do
+    get '/contact', to: 'contact#index'
+  end
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
